@@ -2,7 +2,7 @@ import React from 'react';
 
 const TopLevel = () => {
     return (
-        <div className="w-full flex flex-col gap-y-4 lg:flex-row lg:justify-between lg:pr-8 lg:pl-8 lg:items-center h-[56px] bg-slate-900">
+        <div className="w-full flex flex-col gap-y-4 lg:flex-row lg:justify-between lg:pr-8 lg:pl-8 lg:items-center h-auto lg:h-[56px] bg-slate-900">
             <p className='text-gray-100 text-md'>
             Free shipping on all orders over $50
             </p>
