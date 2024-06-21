@@ -7,7 +7,8 @@ import Link from 'next/link';
 
 const NavBar = () => {
     return (
-        <section className="bg-white pl-8  lg:max-w-8xl mx-auto h-24 flex gap-x-16 items-center">
+        <section className='bg-white'>
+        <div className=" pl-8 pb-[60px] pt-[60px] lg:max-w-8xl mx-auto h-24 flex gap-x-16 items-center">
            <Link href="/"> <h1 className='tracking-tight text-gray-950 text-3xl font-semibold lg:text-4xl'>TopShop</h1>
            </Link> <div className='h-[38px] w-6/12 border border-sky-200 hidden lg:flex place-items-center p-4 rounded-lg'>
            <IoSearchOutline size={22} />
@@ -22,7 +23,9 @@ const NavBar = () => {
            </div>
            <div className="flex items-center">
            <FiShoppingCart size={28} color={'black'}  className='self-center cursor-pointer'/>
-           </div></section>
+           </div></div>
+           <div className="hidden lg:flex h-[1px] w-full bg-sky-200"></div>
+           </section>
     );
 }
 

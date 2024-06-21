@@ -8,9 +8,9 @@ const TopLevel = () => {
             Free shipping on all orders over $50
             </p>
             <div className='hidden lg:flex lg:gap-x-[26px] lg:mr-2'>
-            <LoginLink className='text-sm text-gray-100 cursor-pointer uppercase'>Account</LoginLink>
-            <Link href="/"><text className='text-sm text-gray-100 cursor-pointer uppercase'>Help Center</text>
-            </Link></div>
+            <RegisterLink className='text-sm text-gray-100 cursor-pointer uppercase'>Sign In</RegisterLink>
+            <LoginLink className='text-sm text-gray-100 cursor-pointer uppercase'>Sign Up
+            </LoginLink></div>
             
         </div>
     );
