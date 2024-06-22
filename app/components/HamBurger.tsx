@@ -16,8 +16,10 @@ const HamBurger:React.FC = () => {
 <RxHamburgerMenu size={26} color={'black'} onClick={()=> setHamBurgerIsOpen(true)}/>
 </div>
  )
-                :  (<div className="h-96 w-full absolute  flex flex-col gap-y-2 justify-center bg-white z-50 p-8 right-0">
-<RxCross2 size={20} className='top-10 text-black hover:bg-red-600 hover:text-white p-3 rounded-full right-10' onClick={()=> setHamBurgerIsOpen(false)} />
+                :  (<div className="h-96 w-full absolute  flex flex-col gap-y-2 justify-center bg-white top-0 p-4 right-0 z-50">
+<div className=" w-8 h-8  rounded-full left-0 top-10 hover:bg-red-600">
+<RxCross2 size={22} className=' text-gray-900 hover:text-white ml-1 mt-1 font-semibold'
+ onClick={()=> setHamBurgerIsOpen(false)} /></div>
 
 <h1 className="text-center text-gray-950 text-xl font-bold ">Menu</h1>
 <div className='h-12 w-84 border border-gray-200 rounded-lg flex gap-x-4 items-center'>

@@ -47,7 +47,7 @@ const NavBar:React.FC = () => {
                         Collections <MdKeyboardArrowDown size={18} className={`ml-1 ${collectionIsOpen ?"rotate-0":"rotate-180"} duration-75`} />
                     </button>
                     {collectionIsOpen && (
-                        <div className="p-8 left-4 flex gap-x-8 h-72 mt-2 rounded-lg w-84 bg-white absolute border-2 border-gray-50 shadow-xl">
+                        <div className="p-8 left-4 flex gap-x-8 h-72 mt-1 rounded-lg w-84 bg-white absolute border-2 border-gray-50 shadow-xl z-50">
                             <div className='p-8 bg-gray-100/40 shadow-sm border border-gray-100/50 rounded-lg w-[40%] h-full flex flex-col items-center justify-center'>
                                 <h3 className='text-gray-950 font-medium text-md'>Here to Help</h3>
                                 <p className='text-sm text-gray-500'>Contact our Customer support team 24/7</p>
@@ -83,7 +83,7 @@ const NavBar:React.FC = () => {
                         Featured Sellers <MdKeyboardArrowDown size={18} className={`ml-1 ${featuredSellerIsOpen ?" rotate-180":" rotate-0"} duration-75` }/>
                     </button>
                     {featuredSellerIsOpen && (
-                        <div className="absolute ml-4 rounded-lg shadow-md mt-2 left-0 h-80  w-6/12 bg-white gap-y-4 flex flex-col border border-gray-100">
+                        <div className="absolute ml-4 rounded-lg shadow-md mt-1 left-0 h-80  w-6/12 bg-white gap-y-4 flex flex-col border border-gray-100 z-50">
                             <div className="flex justify-between p-4">
                                 <Link href="">
                                     <div className='hover:bg-gray-100/50 p-4'>
