@@ -8,7 +8,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import HamBurger from './HamBurger';
 
 
-const NavBar = () => {
+const NavBar:React.FC = () => {
     const [collectionIsOpen, setCollectionIsOpen] = useState(false);
     const [featuredSellerIsOpen, setFeaturedSellerIsOpen] = useState(false);
     return (
@@ -121,7 +121,7 @@ const NavBar = () => {
           </div>
         </div>
         <div className="bg-blue-900 h-16 w-full flex items-center justify-center border-b-2 border-white">
-                <text className="text-sm md:text-md text-white">New summer sale - limited time only!</text>
+                <text className="text-sm md:text-[16px] text-white">New summer sale - limited time only!</text>
             </div></section>
     );
 }

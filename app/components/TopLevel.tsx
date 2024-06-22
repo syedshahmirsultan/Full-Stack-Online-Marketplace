@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import {RegisterLink, LoginLink} from "@kinde-oss/kinde-auth-nextjs/components";
-const TopLevel = () => {
+const TopLevel:React.FC = () => {
     return (
         <div className="w-full flex flex-col gap-y-4 lg:flex-row justify-center lg:justify-between lg:pr-8 lg:pl-8 items-center h-[56px] bg-slate-900">
             <p className='text-gray-100 text-sm lg:text-[16px]'>
