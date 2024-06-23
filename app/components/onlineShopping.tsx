@@ -46,7 +46,8 @@ const sellersDetail = [
 
 export default function OnlineShopping() {
   return (
-    <Tabs defaultValue="buyers" className="w-full m-2 md:w-[1000px] ml-2 md:ml-4 mt-16">
+    <div className="max-w-8xl mx-auto">
+    <Tabs defaultValue="buyers" className="w-full m-2 ml-2 md:ml-4 mt-16">
       <TabsList className="grid w-1/2 md:w-[350px] mx-auto grid-cols-2">
         <TabsTrigger value="buyers">For Buyers</TabsTrigger>
         <TabsTrigger value="sellers">For Sellers</TabsTrigger> 
@@ -72,8 +73,14 @@ export default function OnlineShopping() {
           </div>
           <div className="flex justify-center"> <button className="text-white text-sm text-center px-7 py-3.5 mt-12  bg-gray-900 rounded-lg hover:bg-gray-700  font-medium"><Link href="/products">View All Products</Link></button>
           </div> 
-<div className=" hidden md:flex bg-purple-700 w-full mx-auto h-72 p-4 mt-12">
-  <div className="flex flex-col gap-y-4 "></div>
+<div className=" hidden md:flex bg-blue-900 rounded-lg w-12/12 h-64 p-4 mt-12">
+  <div className="flex flex-col gap-y-4 items-center ">
+<p className="text-white text-md font-semibold">FEATURED SELLER</p>
+<h2 className="text-3xl font-bold text-white">Tim's Terrific Toys</h2>
+<p className="text-white text-md font-medium">Top seller of the month! Tim's Toys has been selling toys for 10 years and is a top rated seller on the platform.
+</p>
+<button className="text-center font-semibold mt-6 text-sm text-gray-950 hover:bg-gray-100 bg-white px-5 py-2.5 rounded-lg">Explore Sellers</button>
+  </div>
 </div>
         </div>
         {/* The buyers content ends here !*/}
@@ -106,6 +113,6 @@ Access our global marketplace and sell your
        </div>
         {/* The sellers content ends here !*/}
       </TabsContent>
-    </Tabs>
+    </Tabs></div>
   )
 }
