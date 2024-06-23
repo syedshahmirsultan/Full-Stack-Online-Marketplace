@@ -1,6 +1,6 @@
 
 import {RegisterLink} from "@kinde-oss/kinde-auth-nextjs/components";
-
+import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -46,8 +46,8 @@ const sellersDetail = [
 
 export default function OnlineShopping() {
   return (
-    <Tabs defaultValue="buyers" className="w-full m-2 md:w-[700px] ml-2 md:ml-4 mt-16">
-      <TabsList className="grid w-1/2 md:w-[350px] grid-cols-2">
+    <Tabs defaultValue="buyers" className="w-full m-2 md:w-[1000px] ml-2 md:ml-4 mt-16">
+      <TabsList className="grid w-1/2 md:w-[350px] mx-auto grid-cols-2">
         <TabsTrigger value="buyers">For Buyers</TabsTrigger>
         <TabsTrigger value="sellers">For Sellers</TabsTrigger> 
       </TabsList>
@@ -61,16 +61,20 @@ export default function OnlineShopping() {
             <p className="text-2xl md:text-4xl text-gray-500 text-start ml-2 md:ml-0 md:text-center font-medium mt-2">
               Shop hundreds of products from sellers worldwide.
             </p> 
-            <p className="text-start text-gray-900 font-medium text-xl  md:text-3xl mt-12">Top Picks</p>
+            <p className="text-start text-gray-900 font-medium text-xl ml-4 md:ml-10  md:text-3xl mt-12">Top Picks</p>
           </div>
-
-          <div>
+        <div className="bg-sky-200 w-full m-8 h-80">
 
 {/** 
  * Mapping of Some Sanity Products
  **/}
 
           </div>
+          <div className="flex justify-center"> <button className="text-white text-sm text-center px-7 py-3.5 mt-12  bg-gray-900 rounded-lg hover:bg-gray-700  font-medium"><Link href="/products">View All Products</Link></button>
+          </div> 
+<div className=" hidden md:flex bg-purple-700 w-full mx-auto h-72 p-4 mt-12">
+  <div className="flex flex-col gap-y-4 "></div>
+</div>
         </div>
         {/* The buyers content ends here !*/}
       </TabsContent>
