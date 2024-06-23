@@ -62,9 +62,9 @@ export default function OnlineShopping() {
             <p className="text-2xl md:text-4xl text-gray-500 text-start ml-2 md:ml-0 md:text-center font-medium mt-2">
               Shop hundreds of products from sellers worldwide.
             </p> 
-            <p className="text-start text-gray-900 font-medium text-xl ml-4 md:ml-10  md:text-3xl mt-12">Top Picks</p>
+            <p className="text-start text-gray-900 font-medium text-xl  md:text-3xl mt-12">Top Picks</p>
           </div>
-        <div className="bg-sky-200 w-full m-8 h-80">
+        <div className="bg-sky-200 w-full mx-auto rounded-lg m-8 h-80">
 
 {/** 
  * Mapping of Some Sanity Products
@@ -73,11 +73,11 @@ export default function OnlineShopping() {
           </div>
           <div className="flex justify-center"> <button className="text-white text-sm text-center px-7 py-3.5 mt-12  bg-gray-900 rounded-lg hover:bg-gray-700  font-medium"><Link href="/products">View All Products</Link></button>
           </div> 
-<div className=" hidden md:flex bg-blue-900 rounded-lg w-12/12 h-64 p-4 mt-12">
+<div className=" hidden md:flex bg-blue-900 md:flex-col md:items-center md:gap-y-4 mx-auto rounded-lg w-12/12 h-64 p-4 md:mt-20">
   <div className="flex flex-col gap-y-4 items-center ">
 <p className="text-white text-md font-semibold">FEATURED SELLER</p>
 <h2 className="text-3xl font-bold text-white">Tim's Terrific Toys</h2>
-<p className="text-white text-md font-medium">Top seller of the month! Tim's Toys has been selling toys for 10 years and is a top rated seller on the platform.
+<p className="text-white text-md">Top seller of the month! Tim's Toys has been selling toys for 10 years and is a top rated seller on the platform.
 </p>
 <button className="text-center font-semibold mt-6 text-sm text-gray-950 hover:bg-gray-100 bg-white px-5 py-2.5 rounded-lg">Explore Sellers</button>
   </div>
