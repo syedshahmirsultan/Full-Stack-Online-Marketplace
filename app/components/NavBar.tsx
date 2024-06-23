@@ -10,8 +10,8 @@ import { CartComp } from './CartComp';
 
 
 const NavBar:React.FC = () => {
-    const [collectionIsOpen, setCollectionIsOpen] = useState(false);
-    const [featuredSellerIsOpen, setFeaturedSellerIsOpen] = useState(false);
+    const [collectionIsOpen, setCollectionIsOpen] = useState<boolean>(false);
+    const [featuredSellerIsOpen, setFeaturedSellerIsOpen] = useState<boolean>(false);
     return (
         <section>
         <div className='bg-white flex flex-row lg:flex-col'>

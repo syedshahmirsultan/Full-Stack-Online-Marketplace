@@ -18,7 +18,7 @@ export function CartComp({children}:{children:ReactNode}) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">{children}</Button>
+        <Button className="outline-none bg-white hover:bg-white p-1">{children}</Button>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
