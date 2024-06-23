@@ -12,7 +12,7 @@ const [currentImageIndex,setCurrentImageIndex] = useState<any>(0)
 useEffect(() => {
   const timer = setTimeout(() => {
     setCurrentImageIndex((i: number)=> (i == images.length -1 ? 0 :i+1))
-  }, 9000);
+  }, 5000);
 
   return () => clearInterval(timer)
 }, [currentImageIndex]);
