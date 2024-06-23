@@ -10,7 +10,7 @@ import {
 import { FiDollarSign } from "react-icons/fi";
 import { FiUser } from "react-icons/fi";
 import { LuAlarmClock } from "react-icons/lu";
-import { LiaTruckSolid } from "react-icons/lia";
+import { FaTruck } from "react-icons/fa";
 import { IoCallOutline } from "react-icons/io5";
 
 
@@ -35,15 +35,15 @@ const sellersDetail = [
 ] ;
 
 const buyersDetail = [
-  { symbol:<LiaTruckSolid size={28}/>,
+  { symbol:<FaTruck size={32}/>,
   title:"Free Shipping",
   text:"Free shipping on all orders over $50"
   },
-  { symbol:<IoCallOutline size={28}/>,
+  { symbol:<IoCallOutline size={32}/>,
   title:"24/7 Customer Support",
   text:"Have a question? Get in touch."
   },
-  { symbol:<FiDollarSign size={28}/>,
+  { symbol:<FiDollarSign size={32}/>,
   title:"Best prices",
   text:"We offer the best prices on the market."
   }
@@ -89,11 +89,13 @@ export default function OnlineShopping() {
 <button className="text-center font-semibold mt-6 text-sm text-gray-950 hover:bg-gray-100 bg-white px-5 py-2.5 rounded-lg">Explore Sellers</button>
   </div>
 </div>
-<div className="hidden md:flex gap-x-4">
-{buyersDetail.map((item,index)=>{
+<div className="hidden md:flex gap-x-4 mt-12">
+
+{ 
+buyersDetail.map((item,index)=>{
   return (
-    <div key={index} className="w-4/12 h-auto p-6 bg-gray-100/50 border border-gray-500 rounded-lg flex flex-col gap-y-2">
-{item.symbol}
+    <div key={index} className="w-4/12 h-auto p-6 bg-gray-100/50 border border-gray-200/70 rounded-lg flex flex-col gap-y-2">
+  {item.symbol}
 <h2 className="text-2xl text-gray-900 font-semibold">{item.title}</h2>
 <p className="text-md text-gray-900">{item.text}</p>
     </div>
