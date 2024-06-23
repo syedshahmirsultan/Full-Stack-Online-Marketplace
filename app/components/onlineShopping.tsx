@@ -1,17 +1,6 @@
 
 import {RegisterLink} from "@kinde-oss/kinde-auth-nextjs/components";
 import Link from 'next/link'
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
   Tabs,
   TabsContent,
@@ -21,6 +10,8 @@ import {
 import { FiDollarSign } from "react-icons/fi";
 import { FiUser } from "react-icons/fi";
 import { LuAlarmClock } from "react-icons/lu";
+import { LiaTruckSolid } from "react-icons/lia";
+import { IoCallOutline } from "react-icons/io5";
 
 
 
@@ -42,6 +33,21 @@ const sellersDetail = [
 
   }
 ] ;
+
+const buyersDetail = [
+  { symbol:<LiaTruckSolid size={28}/>,
+  title:"Free Shipping",
+  text:"Free shipping on all orders over $50"
+  },
+  { symbol:<IoCallOutline size={28}/>,
+  title:"24/7 Customer Support",
+  text:"Have a question? Get in touch."
+  },
+  { symbol:<FiDollarSign size={28}/>,
+  title:"Best prices",
+  text:"We offer the best prices on the market."
+  }
+]
 
 
 export default function OnlineShopping() {
@@ -71,7 +77,8 @@ export default function OnlineShopping() {
  **/}
 
           </div>
-          <div className="flex justify-center"> <button className="text-white text-sm text-center px-7 py-3.5 mt-12  bg-gray-900 rounded-lg hover:bg-gray-700  font-medium"><Link href="/products">View All Products</Link></button>
+          <div className="flex justify-center"> 
+            <button className="text-white text-sm text-center px-7 py-3.5 mt-12  bg-gray-900 rounded-lg hover:bg-gray-700  font-medium"><Link href="/products">View All Products</Link></button>
           </div> 
 <div className=" hidden md:flex bg-blue-900 md:flex-col md:items-center md:gap-y-4 mx-auto rounded-lg w-12/12 h-64 p-4 md:mt-20">
   <div className="flex flex-col gap-y-4 items-center ">
@@ -83,7 +90,17 @@ export default function OnlineShopping() {
   </div>
 </div>
 <div className="hidden md:flex gap-x-4">
+{buyersDetail.map((item,index)=>{
+  return (
+    <div key={index} className="w-4/12 h-auto p-6 bg-gray-100/50 border border-gray-500 rounded-lg flex flex-col gap-y-2">
+{item.symbol}
+<h2 className="text-2xl text-gray-900 font-semibold">{item.title}</h2>
+<p className="text-md text-gray-900">{item.text}</p>
+    </div>
+  )
+})
 
+}
 
 
 </div>
