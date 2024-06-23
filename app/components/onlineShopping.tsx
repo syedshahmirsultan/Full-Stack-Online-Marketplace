@@ -75,12 +75,17 @@ export default function OnlineShopping() {
           </div> 
 <div className=" hidden md:flex bg-blue-900 md:flex-col md:items-center md:gap-y-4 mx-auto rounded-lg w-12/12 h-64 p-4 md:mt-20">
   <div className="flex flex-col gap-y-4 items-center ">
-<p className="text-white text-md font-semibold">FEATURED SELLER</p>
+<p className="text-white text-md font-semibold mt-4">FEATURED SELLER</p>
 <h2 className="text-3xl font-bold text-white">Tim's Terrific Toys</h2>
 <p className="text-white text-md">Top seller of the month! Tim's Toys has been selling toys for 10 years and is a top rated seller on the platform.
 </p>
 <button className="text-center font-semibold mt-6 text-sm text-gray-950 hover:bg-gray-100 bg-white px-5 py-2.5 rounded-lg">Explore Sellers</button>
   </div>
+</div>
+<div className="hidden md:flex gap-x-4">
+
+
+
 </div>
         </div>
         {/* The buyers content ends here !*/}
