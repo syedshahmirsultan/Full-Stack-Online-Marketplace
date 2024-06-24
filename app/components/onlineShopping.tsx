@@ -12,9 +12,12 @@ import { FiUser } from "react-icons/fi";
 import { LuAlarmClock } from "react-icons/lu";
 import { FaTruck } from "react-icons/fa";
 import { IoCallOutline } from "react-icons/io5";
+import allProducts from "./utils/apiCalling";
+import ProductGridViewer from "./productGridViewer";
+import {allProductsType} from "@/types";
 
 
-
+// SellersDetail Array
 const sellersDetail = [
   { symbol:<FiDollarSign size={30} />,
     title:"No monthly fees",
@@ -34,6 +37,7 @@ const sellersDetail = [
   }
 ] ;
 
+//Buyers Detail Array
 const buyersDetail = [
   { symbol:<FaTruck size={32}/>,
   title:"Free Shipping",
@@ -50,7 +54,10 @@ const buyersDetail = [
 ]
 
 
-export default function OnlineShopping() {
+export default async function OnlineShopping() {
+  const allProductsDetail: allProductsType = await allProducts();
+  // console.log("ALL PRODUCTS DETAIL:",allProductsDetail);
+   console.log("Single PRODUCT DETAIL:",allProductsDetail.result[0].slug)
   return (
     <div className="max-w-8xl mx-auto">
     <Tabs defaultValue="buyers" className="w-full m-2 ml-2 md:ml-4 mt-16">
@@ -70,12 +77,9 @@ export default function OnlineShopping() {
             </p> 
             <p className="text-start text-gray-900 font-medium text-xl  md:text-3xl mt-12">Top Picks</p>
           </div>
-        <div className="bg-sky-200 w-full mx-auto rounded-lg m-8 h-80">
-
-{/** 
- * Mapping of Some Sanity Products
- **/}
-
+          <div>
+        
+<ProductGridViewer productsDetail ={allProductsDetail.result}/>
           </div>
           <div className="flex justify-center"> 
             <button className="text-white text-sm text-center px-7 py-3.5 mt-12  bg-gray-900 rounded-lg hover:bg-gray-700  font-medium"><Link href="/products">View All Products</Link></button>
