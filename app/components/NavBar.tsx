@@ -108,7 +108,7 @@ const NavBar:React.FC = () => {
                                 </Link>
                                 <Link href="/products">
                                     <div className='hover:bg-gray-100/50 p-4 mb-8'>
-                                        <h3 className='text-gray-950 font-medium text-md'>Tim's Trainer</h3>
+                                        <h3 className='text-gray-950 font-medium text-md'>Josh Trainer</h3>
                                         <p className='text-sm text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                     </div>
                                 </Link>
