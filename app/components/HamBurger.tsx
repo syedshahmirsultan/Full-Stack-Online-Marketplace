@@ -26,7 +26,6 @@ const HamBurger:React.FC = () => {
 <IoSearchOutline size={24} className='ml-2' />
 <input type='text' placeholder='Search the Product by Name ...' className=' w-full  flex self-center outline-none text-gray-800'/>
 </div>
-
 <Link href="/products" className="text-gray-600 text-md font-semibold p-4 mt-4 hover:bg-gray-100/50">
 Products</Link>
 <RegisterLink className='text-md text-gray-600 cursor-pointer uppercase p-4 font-semibold hover:bg-gray-100/50'>Sign In</RegisterLink>
