@@ -88,13 +88,13 @@ const NavBar:React.FC = () => {
                             <div className="flex justify-between p-4">
                                 <Link href="/products">
                                     <div className='hover:bg-gray-100/50 p-4'>
-                                        <h3 className='text-gray-950 font-medium text-md'>Tim's Toys</h3>
+                                        <h3 className='text-gray-950 font-medium text-md'>Tims</h3>
                                         <p className='text-sm text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                     </div>
                                 </Link>
                                 <Link href="/products">
                                     <div className='hover:bg-gray-100/50 p-4'>
-                                        <h3 className='text-gray-950 font-medium text-md'>James jackpots</h3>
+                                        <h3 className='text-gray-950 font-medium text-md'>James</h3>
                                         <p className='text-sm text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                     </div>
                                 </Link>
@@ -102,13 +102,13 @@ const NavBar:React.FC = () => {
                             <div className="flex justify-between p-4">
                                 <Link href="/products">
                                     <div className='hover:bg-gray-100/50 p-4'>
-                                        <h3 className='text-gray-950 font-medium text-md'>Dave's Deals</h3>
+                                        <h3 className='text-gray-950 font-medium text-md'>Dave</h3>
                                         <p className='text-sm text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                     </div>
                                 </Link>
                                 <Link href="/products">
                                     <div className='hover:bg-gray-100/50 p-4 mb-8'>
-                                        <h3 className='text-gray-950 font-medium text-md'>Josh Trainer</h3>
+                                        <h3 className='text-gray-950 font-medium text-md'>Josh</h3>
                                         <p className='text-sm text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                     </div>
                                 </Link>
