@@ -74,7 +74,7 @@ export default async function OnlineShopping() {
             <p className="text-2xl md:text-4xl text-gray-500 text-start ml-2 md:ml-0 md:text-center font-medium mt-2">
               Shop hundreds of products from sellers worldwide.
             </p> 
-            <p className="text-start text-gray-900 font-medium text-xl  md:text-3xl mt-12">Top Picks</p>
+            <p className="text-start text-gray-900 font-bold text-2xl  md:text-4xl mt-16">Top Picks</p>
           </div>
           <div>
         

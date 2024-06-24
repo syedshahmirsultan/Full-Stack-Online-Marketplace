@@ -11,7 +11,7 @@ const Footer = () => {
 
             </div>
             <div>
-<p className="text-white text-sm">Fictional online marketplace built by <Link href="https://www.linkedin.com/in/syedshahmirsultan/" className="underline">@syedshaahmirsultan.</Link></p>
+<p className="text-white text-sm">Fictional online marketplace built by <Link href="https://www.linkedin.com/in/syedshahmirsultan/" className="underline">@syedshahmirsultan.</Link></p>
  <p className="text-white text-sm mt-2 md:ml-16"><Link href="https://github.com/syedshahmirsultan/Full-Stack-Online-Marketplace">Source code available on GitHub.</Link></p>     
        </div>
         </section>
