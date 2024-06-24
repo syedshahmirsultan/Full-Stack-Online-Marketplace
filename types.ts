@@ -1,18 +1,11 @@
+import { Image } from "sanity";
 
 export interface productSlugType{ 
     _type: string;
      current: string
      }
 
-export interface productImageType{
-    _type: string;
-    _key: string;
-    alt:string;
-    asset: {
-      _type: string;
-      _ref: string
-        }
-      }
+
 
 export default interface singleProductType {
     price: number;
@@ -20,7 +13,7 @@ export default interface singleProductType {
     sellername: string;
     slug: productSlugType;
     descriptionText: [string];
-    image:productImageType
+    image:Image[]
 }
 
 export  interface allProductsType {
