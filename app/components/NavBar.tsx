@@ -54,19 +54,19 @@ const NavBar:React.FC = () => {
                                 <p className='text-sm text-gray-500'>Contact our Customer support team 24/7</p>
                             </div>
                             <div className='flex flex-col gap-y-1 h-full w-[60%] pr-8'>
-                                <Link href="">
+                                <Link href="/products">
                                     <div className='hover:bg-gray-100/50 p-4'>
                                         <h3 className='text-sm text-gray-900 font-semibold'>New Arrivals</h3>
                                         <p className='text-xs text-gray-500'>Shop our new arrivals and exclusive collections</p>
                                     </div>
                                 </Link>
-                                <Link href="">
+                                <Link href="/products">
                                     <div className='hover:bg-gray-100/50 p-4'>
                                         <h3 className='text-md text-gray-900 font-semibold'>Sport</h3>
                                         <p className='text-sm text-gray-500'>Discover our new sports range</p>
                                     </div>
                                 </Link>
-                                <Link href="">
+                                <Link href="/products">
                                     <div className='hover:bg-gray-100/50 p-4 mb-8'>
                                         <h3 className='text-md text-gray-900 font-semibold'>Summer Sale</h3>
                                         <p className='text-sm text-gray-500'>Grab a bargain with our summer sale</p>
@@ -86,13 +86,13 @@ const NavBar:React.FC = () => {
                     {featuredSellerIsOpen && (
                         <div className="absolute ml-4 rounded-lg shadow-md mt-1 left-0 h-80  w-6/12 bg-white gap-y-4 flex flex-col border border-gray-100 z-50">
                             <div className="flex justify-between p-4">
-                                <Link href="">
+                                <Link href="/products">
                                     <div className='hover:bg-gray-100/50 p-4'>
                                         <h3 className='text-gray-950 font-medium text-md'>Tim's Toys</h3>
                                         <p className='text-sm text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                     </div>
                                 </Link>
-                                <Link href="">
+                                <Link href="/products">
                                     <div className='hover:bg-gray-100/50 p-4'>
                                         <h3 className='text-gray-950 font-medium text-md'>James jackpots</h3>
                                         <p className='text-sm text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -100,13 +100,13 @@ const NavBar:React.FC = () => {
                                 </Link>
                             </div>
                             <div className="flex justify-between p-4">
-                                <Link href="">
+                                <Link href="/products">
                                     <div className='hover:bg-gray-100/50 p-4'>
                                         <h3 className='text-gray-950 font-medium text-md'>Dave's Deals</h3>
                                         <p className='text-sm text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                     </div>
                                 </Link>
-                                <Link href="">
+                                <Link href="/products">
                                     <div className='hover:bg-gray-100/50 p-4 mb-8'>
                                         <h3 className='text-gray-950 font-medium text-md'>Tim's Trainer</h3>
                                         <p className='text-sm text-gray-500'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
