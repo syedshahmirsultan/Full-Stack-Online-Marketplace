@@ -113,10 +113,10 @@ buyersDetail.map((item,index)=>{
         {/* The sellers content starts from here !*/}
        <div className="w-full mt-8 flex flex-col gap-y-2">
 <h2 className="text-4xl md:text-5xl font-extrabold text-start ml-2 md:ml-0 md:text-center text-gray-950">Sell online with ease.</h2>
-<p className="text-2xl md:text-3xl text-gray-500 font-medium m-2 md:m-0 md:mt-2  text-start md:text-center">
+<p className="text-2xl md:text-4xl text-gray-500 font-medium m-2 md:m-0 md:mt-2  text-start md:text-center">
 Access our global marketplace and sell your
             </p> 
-            <p className="text-2xl md:text-3xl text-gray-500 ml-2 md:ml-0 text-start md:text-center font-medium">
+            <p className="text-2xl md:text-4xl text-gray-500 ml-2 md:ml-0 text-start md:text-center font-medium">
             products to over 1 million visitors.
             </p> 
           <div className="flex flex-col gap-y-4 md:flex-row md:gap-x-2 w-full mt-12">
