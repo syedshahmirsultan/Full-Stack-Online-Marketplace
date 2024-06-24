@@ -56,8 +56,7 @@ const buyersDetail = [
 
 export default async function OnlineShopping() {
   const allProductsDetail: allProductsType = await allProducts();
-  // console.log("ALL PRODUCTS DETAIL:",allProductsDetail);
-   console.log("Single PRODUCT DETAIL:",allProductsDetail.result[0].slug)
+  
   return (
     <div className="max-w-8xl mx-auto">
     <Tabs defaultValue="buyers" className="w-full m-2 ml-2 md:ml-4 mt-16">
