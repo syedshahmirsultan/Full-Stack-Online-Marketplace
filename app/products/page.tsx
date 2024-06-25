@@ -57,7 +57,7 @@ import singleProductType, { allProductsType } from '@/types';
 import ProductsList from '../components/ProductsList';
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
-import AllProductsGridViewer from '../components/allProductsGridViewer';
+import ProductGridViewer from '../components/productGridViewer';
 
 const Products = () => {
   const [products, setProducts] = useState<allProductsType | null>(null);
@@ -90,7 +90,7 @@ const Products = () => {
 
   return (
     <div>
-      <div className="w-full m-2 lg:max-w-6xl mx-auto space-y-4 pb-8 bg-white border border-gray-300 rounded-lg">
+      <div className="w-full m-2 lg:max-w-7xl mx-auto space-y-4 pb-8 bg-white border border-gray-300 rounded-lg">
         <Image src="/images/products.png" alt="products page image" width={1000} height={200} className='w-full h-40' />
         <h1 className="text-gray-900 font-bold text-2xl ml-2 lg:ml-6 md:text-3xl">Products</h1>
         <p className='text-gray-700 text-md ml-2 lg:ml-6'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -108,7 +108,7 @@ const Products = () => {
 
       <div className='hidden md:flex md:flex-col md:max-w-7xl md:mx-auto md:mt-20'>
         <h2 className="mt-16 text-gray-950 font-bold text-5xl text-center">Filters</h2>
-        <Tabs defaultValue="allProducts" className="w-full m-2 ml-2 md:ml-4 mt-8">
+        <Tabs defaultValue="allProducts" className="w-full px-3 py:1.5 m-2 ml-2 md:ml-4 mt-10">
           <TabsList className="hidden md:grid w-[600px] p-6 bg-gray-100 mx-auto md:grid-cols-5">
             <TabsTrigger value="allProducts" className="whitespace-nowrap px-3 py-1.5  focus:bg-white font-bold text-gray-950">All Products</TabsTrigger>
             <TabsTrigger value="tims" className="whitespace-nowrap font-bold px-3 py-1.5 focus:bg-white text-gray-950">Tims</TabsTrigger>
@@ -116,20 +116,20 @@ const Products = () => {
             <TabsTrigger value="dave" className="whitespace-nowrap font-bold px-3 py-1.5 focus:bg-white text-gray-950">Dave</TabsTrigger>
             <TabsTrigger value="josh" className="whitespace-nowrap font-bold px-3 py-1.5  focus:bg-white text-gray-950">Josh</TabsTrigger>
           </TabsList>
-          <TabsContent value="allProducts" className="w-full mt-16 mb-20">
+          <TabsContent value="allProducts" className="w-full mt-20 mb-20">
             {products && <ProductsList allProductsDetail={products.result as Array<singleProductType>} />}
           </TabsContent>
-        <TabsContent value="tims" className="w-full mt-16 mb-20">
-            {timsProducts && <AllProductsGridViewer productsDetail={timsProducts.result as Array<singleProductType>} />}
+        <TabsContent value="tims" className="w-full mt-20 mb-20">
+            {timsProducts && <ProductGridViewer productsDetail={timsProducts.result as Array<singleProductType>} />}
           </TabsContent>
           <TabsContent value="james" className="w-full mt-16 mb-20">
-            {jamesProducts && <AllProductsGridViewer productsDetail={jamesProducts.result as Array<singleProductType>} />}
+            {jamesProducts && <ProductGridViewer productsDetail={jamesProducts.result as Array<singleProductType>} />}
           </TabsContent>
-          <TabsContent value="dave" className="w-full mt-16 mb-20">
-            {daveProducts && <AllProductsGridViewer productsDetail={daveProducts.result as Array<singleProductType>} />}
+          <TabsContent value="dave" className="w-full mt-20 mb-20">
+            {daveProducts && <ProductGridViewer productsDetail={daveProducts.result as Array<singleProductType>} />}
           </TabsContent>
-          <TabsContent value="josh" className="w-full mt-16 mb-20">
-            {joshProducts && <AllProductsGridViewer productsDetail={joshProducts.result as Array<singleProductType>} />}
+          <TabsContent value="josh" className="w-full mt-20 mb-20">
+            {joshProducts && <ProductGridViewer productsDetail={joshProducts.result as Array<singleProductType>} />}
           </TabsContent>
         </Tabs>
       </div>
