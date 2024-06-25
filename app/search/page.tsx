@@ -4,7 +4,7 @@ import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { allProductsType } from '@/types';
 import { searchProductByName } from '../components/utils/apiCalling';
-import AllProductGridViewer from '../components/allProductGridViewer';
+import ProductGridViewer from '../components/productGridViewer';
 
 
 const SearchComponent = () => {
@@ -55,7 +55,7 @@ const SearchComponent = () => {
         return <div className="mt-40 text-center mb-80 text-3xl lg:text-4xl font-bold ">No products found</div>;
     }
 
-    return <AllProductGridViewer productsDetail={productData.result} />;
+    return <ProductGridViewer productsDetail={productData.result} />;
 };
 
 const SearchPage = () => {
