@@ -12,6 +12,7 @@ import { CartComp } from './CartComp';
 const NavBar:React.FC = () => {
     const [collectionIsOpen, setCollectionIsOpen] = useState<boolean>(false);
     const [featuredSellerIsOpen, setFeaturedSellerIsOpen] = useState<boolean>(false);
+    const [searchVal,setSearchVal] = useState<string>("");
     return (
         <section>
         <div className='bg-white flex flex-row lg:flex-col'>
@@ -20,8 +21,12 @@ const NavBar:React.FC = () => {
                     <h1 className='tracking-tight text-gray-950 text-3xl font-semibold lg:text-4xl'>TopShop</h1>
                 </Link>
                 <div className='h-[38px] w-6/12 border border-blue-100/60 hidden lg:flex place-items-center p-4 rounded-lg'>
-                    <IoSearchOutline size={22} />
-                    <input type="text" placeholder='Search Product by Name ...' className="h-8 w-full ml-4 text-gray-800 outline-none" />
+                   <Link  href={`/search?query=${searchVal}`}> <IoSearchOutline size={22} /></Link>
+                    <input type="text"
+                     placeholder='Search Product by Name ...' 
+                     className="h-8 w-full ml-4 text-gray-800 outline-none"
+                     value={searchVal}
+                     onChange={(e)=> setSearchVal(e.target.value)} />
                 </div>
                 <div className='hidden lg:flex cursor-pointer'>
                     <FaTruck size={34} color={'black'} className='font-bold self-center' />

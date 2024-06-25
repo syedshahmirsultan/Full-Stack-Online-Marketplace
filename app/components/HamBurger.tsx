@@ -8,6 +8,7 @@ import { LoginLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs';
 
 const HamBurger:React.FC = () => {
     const [hamBurgerIsOpen,setHamBurgerIsOpen] = useState<boolean>(false)
+    const [searchVal,setSearchVal] = useState<string>("")
     return (
         <section>
         <div className='flex lg:hidden'>
@@ -23,8 +24,11 @@ const HamBurger:React.FC = () => {
 
 <h1 className="text-center text-gray-950 text-xl font-bold ">Menu</h1>
 <div className='h-12 w-84 border border-gray-200 rounded-lg flex gap-x-4 items-center'>
-<IoSearchOutline size={24} className='ml-2' />
-<input type='text' placeholder='Search the Product by Name ...' className=' w-full  flex self-center outline-none text-gray-800'/>
+<Link href={`/search?query=${searchVal}`}><IoSearchOutline size={24} className='ml-2' /> </Link>
+<input type='text' placeholder='Search the Product by Name ...'
+ className=' w-full  flex self-center outline-none text-gray-800'
+ value={searchVal}
+ onChange={(e)=> setSearchVal(e.target.value)}/>
 </div>
 <Link href="/products" className="text-gray-600 text-md font-semibold p-4 mt-4 hover:bg-gray-100/50">
 Products</Link>
