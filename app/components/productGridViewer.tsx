@@ -11,7 +11,7 @@ const ProductGridViewer = ({productsDetail}:{productsDetail:Array<singleProductT
     {
     productsDetail.map((item:singleProductType)=>{
         return (
-           <Link key={item.slug.current} href=""> <div  className='flex flex-col gap-y-1 bg-white shadow-xs w-full  rounded-lg h-84'>
+           <Link key={item.slug.current} href=""> <div  className='flex flex-col gap-y-2 bg-white shadow-xs w-full  rounded-lg h-84'>
             <Image src={urlForImage(item.image[0])} width={300} height={300} alt={item.productname} className="w-full h-[270px]"/> 
             <h2 className="text-center font-bold text-xl text-gray-900">{item.productname}</h2>
             <p className='text-gray-950 text-center text-md font-bold'>${item.price}</p>
