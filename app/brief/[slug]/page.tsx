@@ -18,9 +18,9 @@ export async function generateStaticParams(){
 
 
 export async function generateMetaData({slug} :{slug:string}){
-    const detail = await detailOfSingleProduct(slug) as singleProductType;
+    const detail = await detailOfSingleProduct(slug) as allProductsType;
     return {
-        title : detail.productname
+        title : detail.result[0].productname
     }
 }
 
@@ -32,7 +32,7 @@ async function Detail ({slug}:{slug:string}){
     
     return (
         <>
-        <BriefProduct product={data}/>
+        <BriefProduct product={data.result[0]}/>
         </>
     )
 } 
