@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const ProductGridViewer = ({productsDetail}:{productsDetail:Array<singleProductType>}) => {
     return (
-        <div className="w-full mt-10">
+        <div className="w-full mt-20 mb-20">
         <div className="grid m-4 md:m-0 grid-cols-1 w-full md:gap-x-4 gap-y-10 md:grid-cols-3">
     {
     productsDetail.slice(1,7).map((item:singleProductType)=>{
