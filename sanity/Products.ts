@@ -26,10 +26,15 @@ export default {
         }
         },
         {
-           name :"description",
-           title:"Description",
-           type: "string"
-        },
+            name :"description",
+            title:"Description",
+            type: "array",
+            of : [
+             {
+                 type: "block"
+             }
+            ] 
+         },
         {
         name :"image",
         type:'array',
