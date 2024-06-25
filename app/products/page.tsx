@@ -52,28 +52,20 @@
 
 "use client"
 import React, { useState, useEffect } from 'react';
-import allProducts from '../components/utils/apiCalling';
-import { allProductsType } from '@/types';
+import allProducts, { ProductFilterByDaveName, ProductFilterByJamesName, ProductFilterByJoshName, ProductFilterByTimsName} from '../components/utils/apiCalling';
+import singleProductType, { allProductsType } from '@/types';
 import ProductsList from '../components/ProductsList';
 import Image from 'next/image';
-import { Tabs, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 
-const Products = () => {
-  const [allproducts, setAllProducts] = useState<allProductsType | null>(null);
+const Products = async() => {
+  const products = await allProducts();
   const [showMore, setShowMore] = useState(false);
+  const timsProducts:allProductsType = await ProductFilterByTimsName()
+  const jamesProducts:allProductsType = await ProductFilterByJamesName();
+  const daveProducts:allProductsType = await ProductFilterByDaveName();
+  const joshProducts:allProductsType = await ProductFilterByJoshName()
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const products = await allProducts();
-        setAllProducts(products);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
 
   //Handle ShowMore function
   function handleShowMore() {
@@ -95,7 +87,7 @@ const Products = () => {
       </div>
 
       <div className='flex flex-cols md:hidden mt-20'>
-        {allproducts && <ProductsList allProductsDetail={allproducts.result} />}
+        <ProductsList allProductsDetail={products.result} />
       </div>
 
       <div className='hidden md:flex md:flex-col md:max-w-7xl md:mx-auto md:mt-20'>
@@ -108,7 +100,21 @@ const Products = () => {
             <TabsTrigger value="dave" className="whitespace-nowrap font-bold text-gray-950">Dave</TabsTrigger>
             <TabsTrigger value="josh" className="whitespace-nowrap font-bold text-gray-950">Josh</TabsTrigger>
           </TabsList>
-          
+          <TabsContent value="allProducts" className="w-full mt-8">
+          <ProductsList allProductsDetail={products.result as Array<singleProductType>} />
+          </TabsContent>
+          <TabsContent value="tims" className="w-full mt-8">
+          <ProductsList allProductsDetail={timsProducts.result as Array<singleProductType>} />
+          </TabsContent>
+          <TabsContent value="james" className="w-full mt-8">
+          <ProductsList allProductsDetail={jamesProducts.result as Array<singleProductType>} />
+          </TabsContent>
+          <TabsContent value="dave" className="w-full mt-8">
+          <ProductsList allProductsDetail={daveProducts.result as Array<singleProductType>} />
+          </TabsContent>
+          <TabsContent value="josh" className="w-full mt-8">
+          <ProductsList allProductsDetail={joshProducts.result as Array<singleProductType>} />
+          </TabsContent>
         </Tabs>
 
         
