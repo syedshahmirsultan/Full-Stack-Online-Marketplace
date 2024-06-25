@@ -57,6 +57,7 @@ import singleProductType, { allProductsType } from '@/types';
 import ProductsList from '../components/ProductsList';
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
+import AllProductsGridViewer from '../components/allProductsGridViewer';
 
 const Products = async() => {
   const products = await allProducts();
@@ -104,16 +105,16 @@ const Products = async() => {
           <ProductsList allProductsDetail={products.result as Array<singleProductType>} />
           </TabsContent>
           <TabsContent value="tims" className="w-full mt-8">
-          <ProductsList allProductsDetail={timsProducts.result as Array<singleProductType>} />
+          <AllProductsGridViewer productsDetail={timsProducts.result as Array<singleProductType>} />
           </TabsContent>
           <TabsContent value="james" className="w-full mt-8">
-          <ProductsList allProductsDetail={jamesProducts.result as Array<singleProductType>} />
+          <AllProductsGridViewer productsDetail={jamesProducts.result as Array<singleProductType>} />
           </TabsContent>
           <TabsContent value="dave" className="w-full mt-8">
-          <ProductsList allProductsDetail={daveProducts.result as Array<singleProductType>} />
+          <AllProductsGridViewer productsDetail={daveProducts.result as Array<singleProductType>} />
           </TabsContent>
           <TabsContent value="josh" className="w-full mt-8">
-          <ProductsList allProductsDetail={joshProducts.result as Array<singleProductType>} />
+          <AllProductsGridViewer productsDetail={joshProducts.result as Array<singleProductType>} />
           </TabsContent>
         </Tabs>
 
