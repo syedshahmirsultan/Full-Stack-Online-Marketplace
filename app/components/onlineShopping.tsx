@@ -14,7 +14,7 @@ import { FaTruck } from "react-icons/fa";
 import { IoCallOutline } from "react-icons/io5";
 import allProducts from "./utils/apiCalling";
 import {allProductsType} from "@/types";
-import AllProductGridViewer from "./allProductGridViewer";
+import ProductGridViewer from "./productGridViewer";
 
 
 // SellersDetail Array
