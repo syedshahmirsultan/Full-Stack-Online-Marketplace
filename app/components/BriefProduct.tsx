@@ -21,23 +21,23 @@ const BriefProduct =({product}:{product:singleProductType}) => {
         <text className="text-lg font-extrabold text-gray-900">${product.price}</text>
         <div className="flex flex-col gap-y-4">
         <p className='text-gray-700 font-bold text-md'>Quantity</p>
-   <div className="flex  w-32 h-8 bg-white outline-gray-200 rounded-lg"><input type='number'
+   <div className="flex  w-32 h-8 bg-white border border-gray-400 rounded-lg"><input type='number'
    value={quantity} onChange={(e)=> setQuantity(parseInt(e.target.value))} 
    className='outline-none ml-2 w-[90%] h-full text-gray-900 text-md'/>
    </div>
         </div>
-        <button className='px-2.5 py-2.5 mt-2 bg-gray-950 text-white rounded-md font-semibold'>Add to Cart</button>
+        <button className='px-2.5 py-2.5 mt-2 bg-gray-950 text-white rounded-md text-md font-semibold'>Add to Cart</button>
        <div className="flex gap-x-2 md:gap-x-8 mt-8">
         <div className="flex flex-col gap-y-2">
-            <FaTruck size={28} color={'black'}/>
+            <FaTruck size={29}/>
             <p className="text-sm font-medium text-gray-950">Fast Dispatch</p>
             </div>
             <div className="flex flex-col gap-y-2">
-            <VscDebugRestart size={28} color={'black'}/>
+            <VscDebugRestart size={28}/>
             <p className="text-sm font-medium text-gray-950">30 Day Returns</p>
             </div>
             <div className="flex flex-col gap-y-2">
-            <IoCallOutline size={28} color={'black'}/>
+            <IoCallOutline size={28}/>
             <p className="text-sm font-medium text-gray-950">24/7 Support</p>
             </div></div> </div>
         </div></section>

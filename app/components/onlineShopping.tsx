@@ -14,7 +14,7 @@ import { FaTruck } from "react-icons/fa";
 import { IoCallOutline } from "react-icons/io5";
 import allProducts from "./utils/apiCalling";
 import {allProductsType} from "@/types";
-import ProductGridViewer from "./productGridViewer";
+import AllProductGridViewer from "./allProductGridViewer";
 
 
 // SellersDetail Array
@@ -78,7 +78,7 @@ export default async function OnlineShopping() {
           </div>
           <div>
         
-<ProductGridViewer productsDetail ={allProductsDetail.result}/>
+<AllProductGridViewer productsDetail ={allProductsDetail.result}/>
           </div>
           <div className="flex justify-center"> 
             <button className="text-white text-sm text-center px-7 py-3.5 mt-12  bg-gray-900 rounded-lg hover:bg-gray-700  font-medium"><Link href="/products">View All Products</Link></button>
