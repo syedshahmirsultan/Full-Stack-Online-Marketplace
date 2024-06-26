@@ -1,51 +1,54 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
-import { ReactNode } from "react"
+"use client"
+import { typeOfCart } from '@/lib/drizzle';
+import singleProductType, { allProductsType } from '@/types';
+import { KindeUser } from '@kinde-oss/kinde-auth-nextjs/types';
+import React, { useEffect, useState } from 'react';
+import { productFromIdCart } from './utils/apiCalling';
+import { ShoppingBagIcon } from 'lucide-react';
+import Link from 'next/link';
 
-export function CartComp({children}:{children:ReactNode}) {
-  return (
-    <Sheet>
-      <SheetTrigger asChild>
-        <Button className="outline-none bg-white hover:bg-white p-1">{children}</Button>
-      </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
-          <SheetDescription>
-            Make changes to your profile here. Click save when you&#39;re done.
-          </SheetDescription>
-        </SheetHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" value="@peduarte" className="col-span-3" />
-          </div>
+const CartComp = ({data,user}:{data:typeOfCart[], user:KindeUser}) => {
+    const [productData, setProductData] = useState<singleProductType[]>([]);
+
+    useEffect(() => {
+        dataGetter();
+      }, [data]);
+
+async function dataGetter() {
+ const productPromise = data.map((item) => {
+    return productFromIdCart(item.productid);
+        });
+        try {
+            const productData = await Promise.all(productPromise);
+            setProductData(
+              productData.map((item: allProductsType) => {
+                return item.result[0];
+              })
+            );
+          } catch (error) {
+            console.error("Error fetching product data:", error);
+          }
+          if (data.length === 0) {
+            return (
+              <div className="h-[80vh] flex items-center justify-center flex-col gap-3 ">
+                <ShoppingBagIcon color="purple" size={42} />
+                <h2 className="text-2xl font-semibold text-gray-600">
+                  Cart is Empty,{" "}
+                  <Link href="/products" className="text-xl">
+                    Browse Products
+                  </Link>
+                </h2>
+              </div>
+            );
+          }
+        }
+
+
+      return (
+        <div>
+            
         </div>
-        <SheetFooter>
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose>
-        </SheetFooter>
-      </SheetContent>
-    </Sheet>
-  )
+    );
 }
+
+export default CartComp;

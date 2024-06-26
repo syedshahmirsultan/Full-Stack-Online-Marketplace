@@ -13,7 +13,8 @@ export default interface singleProductType {
     sellername: string;
     slug: productSlugType;
     descriptionText: [string];
-    image:Image[]
+    image:Image[];
+    _id:string
 }
 
 export  interface allProductsType {

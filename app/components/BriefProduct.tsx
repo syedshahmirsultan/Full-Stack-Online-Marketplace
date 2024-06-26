@@ -28,7 +28,8 @@ const BriefProduct =({product}:{product:singleProductType}) => {
    className='outline-none ml-2 w-[90%] h-full text-gray-900 text-md'/>
    </div>
         </div>
-        <button className='p-2 mt-2 bg-gray-950 w-44 h-12 text-white rounded-md text-md font-semibold'>Add to Cart</button>
+        <button 
+        className='p-2 mt-2 bg-gray-950 w-44 h-12 text-white rounded-md text-md font-semibold'>Add to Cart</button>
        <div className="flex gap-x-4 md:gap-x-8 mt-8">
         <div className="flex flex-col gap-y-2">
             <FaTruck size={29}/>
