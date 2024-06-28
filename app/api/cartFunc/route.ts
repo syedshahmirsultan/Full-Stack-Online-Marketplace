@@ -12,6 +12,7 @@ export async function GET(req: NextRequest) {
         if (url.has('userid')) {
             const { userid } = validateUserId.parse({ userid: url.get('userid') });
             const cartData = await db.select().from(marketplacetable).where(eq(marketplacetable.userid, userid));
+           console.log("CART DATA :",cartData);
             return NextResponse.json(cartData);
         } else {
             return NextResponse.json({ Message: "Userid Not Found" });
@@ -30,55 +31,6 @@ export async function GET(req: NextRequest) {
     }
 
 }
-
-
-
-
-// export async function POST (req:NextRequest){
-
-//     const body = await req.json()
-//     const validatedBody = validatePOST.parse(body);
-//     try {
-// const alreadyCartData = await db.select().from(marketplacetable).where(and(eq(
-//     marketplacetable.userid ,validatedBody.userid
-// ), eq(marketplacetable.productid,validatedBody.productid)))
-
-//  if (alreadyCartData.length > 0){
-//     const updatedData = {
-//         userid :validatedBody.userid,
-//         productid :validatedBody.productid,
-//         quantity :validatedBody.quantity as number + 1
-//         // quantity :alreadyCartData[0].quantity as number + 1
-//     }
-
-// await db.update(marketplacetable).set(updatedData).where(
-//     and(eq(marketplacetable.userid,validatedBody.userid),
-//         eq(marketplacetable.productid,validatedBody.productid)
-// )
-// )
-//  return NextResponse.json({
-//     message :"gg"
-//  })
-// }
-
-// else {      
-//     const cartData = await db.insert(marketplacetable).values(validatedBody).returning();
-//         return NextResponse.json(cartData) 
-//     } 
-// } catch (error) {
-//         if(error instanceof z.ZodError){
-//             return NextResponse.json ({
-//                 error :"Invalid Payload"},
-//             {
-//                 status :422
-//             })
-//         }
- 
-//         const rr = (error as {message :string}).message
-//         return NextResponse.json ({ messaage:"ERROR FACING HERE"})
-//     }
-// }
-
 
 
 export async function POST(req: NextRequest) {
@@ -106,30 +58,6 @@ export async function POST(req: NextRequest) {
     }
 }
 
-// export async function GET(req: NextRequest) {
-//     const url = req.nextUrl.searchParams;
-
-//     try {
-//         if (url.has('userid')) {
-//             const { userid } = validateUserId.parse({ userid: url.get('userid') });
-//             const cartData = await db.select().from(marketplacetable).where(eq(marketplacetable.userid, userid));
-//             return NextResponse.json(cartData);
-//         } else {
-//             return NextResponse.json({ Message: "Userid Not Found" });
-//         }
-//     } catch (error) {
-//         console.error("Error processing GET request:", error);
-
-//         if (error instanceof z.ZodError) {
-//             return NextResponse.json({
-//                 error: "Invalid Payload"
-//             }, { status: 422 });
-//         }
-
-//         const rr = (error as { message: string }).message;
-//         return NextResponse.json({ error: rr });
-//     }
-// }
 
 export async function PUT(req:NextRequest){
     const body = await req.json()
@@ -185,3 +113,83 @@ export async function DELETE(req: NextRequest) {
       return NextResponse.json({ error: rr });
     }
   }
+
+
+
+
+
+
+
+
+  
+// export async function POST (req:NextRequest){
+
+//     const body = await req.json()
+//     const validatedBody = validatePOST.parse(body);
+//     try {
+// const alreadyCartData = await db.select().from(marketplacetable).where(and(eq(
+//     marketplacetable.userid ,validatedBody.userid
+// ), eq(marketplacetable.productid,validatedBody.productid)))
+
+//  if (alreadyCartData.length > 0){
+//     const updatedData = {
+//         userid :validatedBody.userid,
+//         productid :validatedBody.productid,
+//         quantity :validatedBody.quantity as number + 1
+//         // quantity :alreadyCartData[0].quantity as number + 1
+//     }
+
+// await db.update(marketplacetable).set(updatedData).where(
+//     and(eq(marketplacetable.userid,validatedBody.userid),
+//         eq(marketplacetable.productid,validatedBody.productid)
+// )
+// )
+//  return NextResponse.json({
+//     message :"gg"
+//  })
+// }
+
+// else {      
+//     const cartData = await db.insert(marketplacetable).values(validatedBody).returning();
+//         return NextResponse.json(cartData) 
+//     } 
+// } catch (error) {
+//         if(error instanceof z.ZodError){
+//             return NextResponse.json ({
+//                 error :"Invalid Payload"},
+//             {
+//                 status :422
+//             })
+//         }
+ 
+//         const rr = (error as {message :string}).message
+//         return NextResponse.json ({ messaage:"ERROR FACING HERE"})
+//     }
+// }
+
+
+
+// export async function GET(req: NextRequest) {
+//     const url = req.nextUrl.searchParams;
+
+//     try {
+//         if (url.has('userid')) {
+//             const { userid } = validateUserId.parse({ userid: url.get('userid') });
+//             const cartData = await db.select().from(marketplacetable).where(eq(marketplacetable.userid, userid));
+//             return NextResponse.json(cartData);
+//         } else {
+//             return NextResponse.json({ Message: "Userid Not Found" });
+//         }
+//     } catch (error) {
+//         console.error("Error processing GET request:", error);
+
+//         if (error instanceof z.ZodError) {
+//             return NextResponse.json({
+//                 error: "Invalid Payload"
+//             }, { status: 422 });
+//         }
+
+//         const rr = (error as { message: string }).message;
+//         return NextResponse.json({ error: rr });
+//     }
+// }

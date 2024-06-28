@@ -17,6 +17,7 @@ export default interface singleProductType {
     _id:string
 }
 
+
 export  interface allProductsType {
     result:singleProductType[];
     query:string

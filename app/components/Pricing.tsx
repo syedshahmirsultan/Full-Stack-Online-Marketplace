@@ -47,7 +47,7 @@ const Pricing = ({ productData, data }: { productData: singleProductType[], data
 
 
   return (
-    <div className="flex flex-col space-y-6 px-6 mt-20 p-4 bg-gray-100/50 rounded-md">
+    <div className="flex p-4 md:p-8  overflow-clip w-full flex-col md:max-w-6xl md:mx-auto space-y-6 px-6 mt-20 p-4 bg-gray-100/50 rounded-md">
       <h6 className="font-bold text-2xl mb-10">Order Summary</h6>
       <div className="flex justify-between">
         <p className="text-lg font-bold">Quantity:</p>

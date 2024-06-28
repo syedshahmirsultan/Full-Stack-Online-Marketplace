@@ -1,5 +1,6 @@
 // "use client"
 // import { typeOfCart } from '@/lib/drizzle';
+// "use client"
 // import singleProductType, { allProductsType } from '@/types';
 // import { KindeUser } from '@kinde-oss/kinde-auth-nextjs/types';
 // import React, { useEffect, useState } from 'react';
@@ -25,6 +26,7 @@
 //         });
 //         try {
 //             const productData = await Promise.all(productPromise);
+//             console.log("ProductData :",productData)
 //             setProductData(
 //               productData.map((item: allProductsType) => {
 //                 return item.result[0];
@@ -109,8 +111,7 @@
 // export default CartComp;
 
 
-
-"use client";
+"use client"
 import { typeOfCart } from '@/lib/drizzle';
 import singleProductType, { allProductsType } from '@/types';
 import { KindeUser } from '@kinde-oss/kinde-auth-nextjs/types';
@@ -130,16 +131,28 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser | null }
     useEffect(() => {
         if (data.length > 0) {
             dataGetter();
+        } else {
+            setProductData([]);
         }
     }, [data]);
 
     const dataGetter = async () => {
         const productPromise = data.map((item) => productFromIdCart(item.productid));
+
         try {
-            const productData = await Promise.all(productPromise);
-            setProductData(
-                productData.map((item: allProductsType) => item.result[0])
-            );
+            const products = await Promise.all(productPromise);
+
+            const validProductData: singleProductType[] = products.map((item) => ({
+                price: item.result[0]?.price,
+                productname: item.result[0]?.productname,
+                sellername: item.result[0]?.sellername,
+                slug: item.slug,
+                descriptionText: item.result[0]?.descriptionText,
+                image: item.result[0]?.image,
+                _id: item.result[0]?._id,
+            }));
+
+            setProductData(validProductData);
         } catch (error) {
             console.error("Error fetching product data:", error);
         }
@@ -161,7 +174,7 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser | null }
     }
 
     return (
-        <section className="lg:ml-20 ml-2 lg:mb-60 mb-80">
+        <section className="lg:ml-20 ml-2 lg:mb-60 mb-80 w-full p-4 md:max-w-6xl">
             <h1 className="text-slate-800 font-bold text-3xl mx-auto flex justify-center lg:justify-start mb-12 mt-12">
                 Shopping Cart
             </h1>
@@ -191,13 +204,13 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser | null }
                                 {inputValue}
                             </p>
                         </div>
-                        <p className="text-md text-blue-700 font-semibold">
+                        <p className="text-md text-blue-900 font-extrabold ml-2">
                             ${item.price}
                         </p>
                         <div className="flex justify-between items-center flex-wrap">
                             <div className="flex items-center">
-                                <ClockIcon size={16} className="mr-1 text-blue-700" />
-                                <p className="text-md text-blue-700 font-semibold">Estimated Delivery:</p>
+                                <ClockIcon size={16} className="mr-1 text-blue-900" />
+                                <p className="text-md text-blue-700 font-bold">Estimated Delivery:</p>
                                 <p className="text-md text-slate-700 font-semibold ml-1">5 Working Days</p>
                             </div>
                         </div>
