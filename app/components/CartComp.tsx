@@ -9,6 +9,7 @@ import { urlForImage } from '@/sanity/lib/image';
 import { Trash2, ClockIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useInputContext } from './InputContext';
+import Pricing from './Pricing';
 
 const CartComp = ({data,user}:{data:typeOfCart[], user:KindeUser|null}) => {
     const [productData, setProductData] = useState<singleProductType[]>([]);
@@ -97,7 +98,7 @@ async function dataGetter() {
           </div>
         ))}
       </div>
-     {/* <Pricing productData={productData} data={data}/> */}
+     <Pricing productData={productData} data={data}/>
     </section>
     );
 }
