@@ -8,12 +8,11 @@ import Link from 'next/link';
 import { urlForImage } from '@/sanity/lib/image';
 import { Trash2, ClockIcon } from 'lucide-react';
 import Image from 'next/image';
-import { useInputContext } from './InputContext';
 import Pricing from './Pricing';
+import Quantity from './Quantity';
 
-const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser | null }) => {
+const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser }) => {
     const [productData, setProductData] = useState<singleProductType[]>([]);
-    const { inputValue } = useInputContext();
 
     useEffect(() => {
         if (data.length > 0) {
@@ -47,11 +46,11 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser | null }
 
     if (data.length === 0) {
         return (
-            <div className="w-full md:max-w-7xl md:mx-auto">
-                <div className="h-16 border border-gray-700 border-dotted w-full p-8 md:p-2 flex flex-col gap-y-4 items-center justify-center">
-                    <h2 className="text-2xl font-semibold text-gray-600">Your Cart is Empty</h2>
+            <div className="w-full md:max-w-6xl md:mx-auto mt-20">
+                <div className="h-80 bg-gray-100/50 rounded-md w-full p-8 md:p-2 flex flex-col gap-y-4 items-center justify-center">
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-950">Your Cart is Empty</h2>
                     <Link href="/products" className="mt-4">
-                        <button className="bg-gray-900 w-40 h-8 p-2 rounded-md text-white font-semibold text-sm">
+                        <button className="bg-gray-950 w-40 h-12 p-2 rounded-md text-white font-semibold text-sm">
                             Start Shopping
                         </button>
                     </Link>
@@ -87,18 +86,16 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser | null }
                                 alt="Product Image"
                                 className="object-cover"
                             />
-                            <p className="text-gray-950 text-md font-semibold">
-                                {inputValue}
-                            </p>
+                            <Quantity data={data[index]} item={item} user={user}/>
                         </div>
-                        <p className="text-md text-blue-900 font-extrabold ml-2">
+                        <p className="text-lg text-gray-900 font-extrabold ml-2">
                             ${item.price}
                         </p>
                         <div className="flex justify-between items-center flex-wrap">
                             <div className="flex items-center">
-                                <ClockIcon size={16} className="mr-1 text-blue-900" />
+                                <ClockIcon size={16} className="mr-1 text-blue-800" />
                                 <p className="text-md text-blue-700 font-bold">Estimated Delivery:</p>
-                                <p className="text-md text-slate-700 font-semibold ml-1">5 Working Days</p>
+                                <p className="text-md text-gray-950 font-semibold ml-1">5 Working Days</p>
                             </div>
                         </div>
                     </div>

@@ -147,6 +147,22 @@ export async function getAllCartProductByUserid(userid:string){
     }
     
      
+
+
+    export async function updateCartItem(userid:string,productid:string,quantity:number){
+        console.log("QUANTITY :",quantity);
+        const res = await fetch(`http://localhost:3000/api/cartFunc`,{
+           method :"PUT",
+           body :JSON.stringify({
+              userid:userid,
+              productid:productid,
+              quantity: quantity
+           })
+        })
+     
+        await refreshData();
+     }
+
      export async function handleDelete(userid:string,productid:string){
         const res = await fetch(`http://localhost:3000/api/cartFunc?userid=${userid}&productid=${productid}`,{
      method :"DELETE"
