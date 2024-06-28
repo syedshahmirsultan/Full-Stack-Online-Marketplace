@@ -1,10 +1,12 @@
 import React from 'react';
 import { typeOfCart } from '@/lib/drizzle';
 import singleProductType from '@/types';
-
+import { useInputContext } from './InputContext';
 
 const Pricing = ({ productData, data }: { productData: singleProductType[], data: typeOfCart[] }) => {
   const shipping = 0;
+  const { inputValue } = useInputContext();
+
 
 //   async function handleProcessCheckout() {
 //     // Include quantity in productData
@@ -40,25 +42,16 @@ const Pricing = ({ productData, data }: { productData: singleProductType[], data
 
   const orderTotal = productData.reduce((total, priceItem) => {
     const quantityItem = data.find(item => item.productid === priceItem._id);
-    return quantityItem ? total + priceItem.price * (quantityItem.quantity as number) : total;
+    return quantityItem ? total + priceItem.price * (inputValue) : total;
   }, 0);
 
-
-//Just for check
-  const numbers = [1, 2, 3, 4, 5];
-
-const sum = numbers.reduce((accumulator, currentValue) => {
-  return accumulator + currentValue;
-}, 0);
-
-console.log(sum);// Output: 15 (1 + 2 + 3 + 4 + 5)
 
   return (
     <div className="flex flex-col space-y-6 px-6 mt-20 p-4 bg-gray-100/50 rounded-md">
       <h6 className="font-bold text-2xl mb-10">Order Summary</h6>
       <div className="flex justify-between">
         <p className="text-lg font-bold">Quantity:</p>
-        <p className="font-bold">{data.reduce((total, item) => total + (item.quantity as number), 0)}</p>
+        <p className="font-bold">{inputValue}</p>
       </div>
       <div className="flex justify-between">
         <p className="text-lg font-bold">Order Total:</p>
@@ -70,7 +63,7 @@ console.log(sum);// Output: 15 (1 + 2 + 3 + 4 + 5)
       </div>
       <div className="flex justify-between">
         <p className="text-lg font-bold">Subtotal:</p>
-        <p className="font-bold">${orderTotal + shipping}.00</p>
+        <p className="font-bold">${orderTotal + shipping}</p>
       </div>
       <button 
         // onClick={handleProcessCheckout}

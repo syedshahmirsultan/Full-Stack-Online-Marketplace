@@ -1,8 +1,8 @@
 import BriefProduct from "@/app/components/BriefProduct";
+import { InputProvider } from "@/app/components/InputContext";
 import allProducts, { detailOfSingleProduct } from "@/app/components/utils/apiCalling";
 import singleProductType, { allProductsType } from "@/types";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
 
 
 
@@ -38,9 +38,9 @@ async function Detail ({slug} :{slug:string}){
     const user:any= getUser()
     
 return (
-    <>
+     <InputProvider>
     <BriefProduct product={data.result[0]} user={user}/>
-    </>
+    </InputProvider>
 )
 }
 

@@ -1,4 +1,8 @@
+import { useInputContext } from "../InputContext";
 import refreshData from "./action";
+
+
+const { inputValue } = useInputContext();
 
 //All Products API
 export default async function allProducts(){
@@ -118,23 +122,28 @@ export async function getAllCartProductByUserid(userid:string){
      }
     
 
-    export async function addToCartApiCall(userid:string,productid:string){
-        const res = await fetch(`http://localhost:3000/api/cartFunc`,{
-           method :"POST",
-           body :JSON.stringify({
-              userid:userid,
-              productid:productid,
-              quantity: 1
-           })
-        })
      
-        return "Okay"
+     export async function addToCartApiCall(userid: string, productid: string, quantity: number) {
+         const res = await fetch(`http://localhost:3000/api/cartFunc`, {
+             method: "POST",
+             headers: {
+                 "Content-Type": "application/json"
+             },
+             body: JSON.stringify({
+                 userid: userid,
+                 productid: productid,
+                 quantity: quantity
+             })
+         });
      
+         if (!res.ok) {
+             const error = await res.json();
+             throw new Error(error.message || "Failed to add to cart");
+         }
+     
+         return res.json();
      }
-
-
-
-
+     
      export async function handleDelete(userid:string,productid:string){
         const res = await fetch(`http://localhost:3000/api/cartFunc?userid=${userid}&productid=${productid}`,{
      method :"DELETE"

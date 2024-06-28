@@ -4,11 +4,11 @@ import OnlineShopping from "./components/onlineShopping";
 export default function Home() {
   
   return (
-    <InputProvider>
+
   <main className="overflow-hidden">
    <Hero/>
    <OnlineShopping/>
-    </main></InputProvider>
+    </main>
   );
 }
 

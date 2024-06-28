@@ -1,3 +1,4 @@
+"use client"
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 interface InputContextType {
@@ -9,7 +10,7 @@ interface InputContextType {
 const InputContext = createContext<InputContextType | undefined>(undefined);
 
 export const InputProvider = ({ children }: { children: ReactNode }) => {
-  const [inputValue, setInputValue] = useState<number>(1);
+  const [inputValue, setInputValue] = useState<number>(0);
 
   const setInput: InputContextType['setInput'] = (value: number) => {
     setInputValue(value);
