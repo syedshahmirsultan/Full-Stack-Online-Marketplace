@@ -40,7 +40,7 @@ const Products = () => {
   return (
     <div>
       <div className="w-full m-4 lg:max-w-7xl mx-auto space-y-4 pb-8 bg-white border border-gray-300 rounded-lg">
-        <Image src="/images/products.png" alt="products page image" width={1000} height={200} className='w-full h-40' />
+        <Image src="/images/products.png" alt="products page image" width={1000} height={200} className='w-full h-40 object-scale-down' />
         <h1 className="text-gray-900 font-bold p-3 text-2xl ml-2 lg:ml-6 md:text-3xl">Products</h1>
         <p className='text-gray-700 text-md p-3 ml-2 lg:ml-6'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         {showMore && (

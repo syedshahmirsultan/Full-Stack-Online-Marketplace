@@ -1,3 +1,5 @@
+import refreshData from "./action";
+
 //All Products API
 export default async function allProducts(){
     const data = await fetch(`https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2024-06-24/data/query/production?query=*%5B_type+%3D%3D+%27products%27%5D%7B%0A++productname%2C%0A++++sellername%2C%0A++++image%2C%0A++++slug%2C%0A++++%22descriptionText%22%3Adescription%5B0%5D.children%5B0%5D.text%2C%0A++++price%2C%0A++++_id%0A%7D`);
@@ -133,4 +135,10 @@ export async function getAllCartProductByUserid(userid:string){
 
 
 
-     //
+     export async function handleDelete(userid:string,productid:string){
+        const res = await fetch(`http://localhost:3000/api/cartFunc?userid=${userid}&productid=${productid}`,{
+     method :"DELETE"
+        })
+        await refreshData();
+        
+     }

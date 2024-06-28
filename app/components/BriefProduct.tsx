@@ -6,10 +6,19 @@ import { urlForImage } from '@/sanity/lib/image';
 import { FaTruck } from "react-icons/fa";
 import { VscDebugRestart } from "react-icons/vsc";
 import { IoCallOutline } from "react-icons/io5";
+import { useInputContext } from './InputContext';
 
 
 const BriefProduct =({product}:{product:singleProductType}) => {
     const [quantity,setQuantity] = useState(1)
+    const { setInput } = useInputContext();
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setInput(parseInt(event.target.value));
+    };
+  
+
+
     return (
         <section className=" w-full p-6 md:p-0 md:max-w-8xl m-2 md:ml-20 mt-20 mb-40 overflow-x-hidden">
         <div className="flex flex-col md:flex-row md:gap-x-8 gap-y-2 text-center md:text-start"><div >
@@ -22,9 +31,8 @@ const BriefProduct =({product}:{product:singleProductType}) => {
         <div className="flex flex-col gap-y-2">
         <p className='text-gray-700 font-bold text-lg'>Quantity</p>
    <div className="flex  w-32 h-8 bg-white border border-gray-400 rounded-lg self-center md:self-start"><input type='number'
-   value={quantity}
-   min={1}
-   onChange={(e)=> setQuantity(parseInt(e.target.value))} 
+   
+   onChange={handleInputChange} 
    className='outline-none ml-2 w-[90%] h-full text-gray-900 text-md'/>
    </div>
         </div>
@@ -43,8 +51,16 @@ const BriefProduct =({product}:{product:singleProductType}) => {
             <IoCallOutline size={28}/>
             <p className="text-sm font-medium text-gray-950">24/7 Support</p>
             </div></div> </div>
-        </div></section>
+        </div>
+        
+        <div className="mt-8 text-start p-4 md:p-8 ">
+            <h3 className="text-gray-900 font-bold text-xl">Product Description</h3>
+            <p className='text-gray-900 text-md font-medium mt-4'>{product.descriptionText}</p>
+            </div></section>
     );
 }
 
 export default BriefProduct;
+
+
+

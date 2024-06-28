@@ -6,7 +6,6 @@ import { FiShoppingCart } from "react-icons/fi";
 import Link from 'next/link';
 import { MdKeyboardArrowDown } from "react-icons/md";
 import HamBurger from './HamBurger';
-import { SideCartComp } from './SideCartComp';
 
 
 const NavBar:React.FC = () => {
@@ -36,7 +35,7 @@ const NavBar:React.FC = () => {
                     </div>
                 </div>
                 <div className="flex items-center">
-                  <SideCartComp> <FiShoppingCart size={28} color={'black'} className='self-center cursor-pointer' /></SideCartComp> 
+                  <Link href="/cart"> <FiShoppingCart size={28} color={'black'} className='self-center cursor-pointer' /></Link> 
                 </div>
             </div>
             <div className="hidden lg:flex h-[1px] w-full bg-slate-200"></div>
