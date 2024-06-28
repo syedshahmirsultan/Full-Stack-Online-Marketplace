@@ -35,7 +35,7 @@ const Brief = async({params} :{params :{slug:string}}) => {
 async function Detail ({slug} :{slug:string}){
     const data = await detailOfSingleProduct(slug);
     const { getUser } = getKindeServerSession()
-    const user:any= getUser()
+    const user = await getUser()
     
 return (
      <InputProvider>

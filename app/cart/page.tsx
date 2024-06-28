@@ -23,6 +23,7 @@ const Cart = async() => {
             </div>
         );
     }
+    
     return (
         <InputProvider>
             <CartComp data={data} user={user}/>

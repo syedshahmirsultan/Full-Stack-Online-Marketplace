@@ -117,6 +117,8 @@ const BriefProduct = ({ product, user }: { product: singleProductType, user: Kin
 
     async function handleAddToCart() {
         if (user) {
+            console.log("User Object:", user);
+            console.log("User ID:", user.id); // Log user.id
             try {
                 await addToCartApiCall(user.id, product._id, inputValue);
                 toast({
@@ -175,7 +177,7 @@ const BriefProduct = ({ product, user }: { product: singleProductType, user: Kin
 
             <div className="mt-8 text-start p-4 md:p-8">
                 <h3 className="text-gray-900 font-bold text-xl">Product Description</h3>
-                <p className='text-gray-900 text-md font-medium mt-4'>{product.descriptionText}</p>
+                <p className='text-gray-900 text-md mt-4 p-2 md:p-4 md:mr-8'>{product.descriptionText}</p>
             </div>
         </section>
     );
