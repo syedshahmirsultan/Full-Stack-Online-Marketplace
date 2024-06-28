@@ -7,17 +7,45 @@ import { FaTruck } from "react-icons/fa";
 import { VscDebugRestart } from "react-icons/vsc";
 import { IoCallOutline } from "react-icons/io5";
 import { useInputContext } from './InputContext';
+import { addToCartApiCall } from './utils/apiCalling';
+import { useToast } from '@/components/ui/use-toast';
+import { KindeUser } from '@kinde-oss/kinde-auth-nextjs/types';
 
 
-const BriefProduct =({product}:{product:singleProductType}) => {
-    const [quantity,setQuantity] = useState(1)
+const BriefProduct =({product,user}:{product:singleProductType,user:KindeUser|null}) => {
     const { setInput } = useInputContext();
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setInput(parseInt(event.target.value));
     };
   
+    const { toast } = useToast();
 
+    async function handleAddToCart(){
+   
+      if(user){
+          await addToCartApiCall(user.id,product._id);
+          toast({
+              title: "Successfully",
+              description: "Added to Cart Successfully !",
+            })
+      }
+      
+      else if (!user) {
+        toast({
+            title: "Error ",
+            description: "Please SignIn or SignUp first !",
+            variant :"destructive"
+          })
+    }
+    else {
+          toast({
+              title: "Unsuccessfully",
+              description: "Cannot Add to Cart Successfully !",
+              variant :"destructive"
+            })
+      }
+    }
 
     return (
         <section className=" w-full p-6 md:p-0 md:max-w-8xl m-2 md:ml-20 mt-20 mb-40 overflow-x-hidden">
@@ -30,13 +58,14 @@ const BriefProduct =({product}:{product:singleProductType}) => {
         <text className="text-xl font-extrabold text-gray-900">${product.price}</text>
         <div className="flex flex-col gap-y-2">
         <p className='text-gray-700 font-bold text-lg'>Quantity</p>
-   <div className="flex  w-32 h-8 bg-white border border-gray-400 rounded-lg self-center md:self-start"><input type='number'
-   
+   <div className="flex  w-32 h-8 bg-white border border-gray-400 rounded-lg self-center md:self-start">
+    <input type='number'
    onChange={handleInputChange} 
    className='outline-none ml-2 w-[90%] h-full text-gray-900 text-md'/>
    </div>
         </div>
         <button 
+        onClick={handleAddToCart}
         className='p-2 mt-2 bg-gray-950 w-44 h-12 text-white rounded-md text-md font-semibold'>Add to Cart</button>
        <div className="flex gap-x-4 md:gap-x-8 mt-8">
         <div className="flex flex-col gap-y-2">

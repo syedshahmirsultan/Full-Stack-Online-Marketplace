@@ -3,6 +3,7 @@ import "./globals.css";
 import TopLevel from "./components/TopLevel";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import { Toaster } from "@/components/ui/toaster";
 
 
 
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+      <Toaster/>
         <TopLevel/>
         <NavBar/>
         {children}

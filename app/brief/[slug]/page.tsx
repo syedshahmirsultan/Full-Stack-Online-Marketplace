@@ -1,6 +1,8 @@
 import BriefProduct from "@/app/components/BriefProduct";
 import allProducts, { detailOfSingleProduct } from "@/app/components/utils/apiCalling";
 import singleProductType, { allProductsType } from "@/types";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types";
 
 
 
@@ -32,10 +34,12 @@ const Brief = async({params} :{params :{slug:string}}) => {
 
 async function Detail ({slug} :{slug:string}){
     const data = await detailOfSingleProduct(slug);
+    const { getUser } = getKindeServerSession()
+    const user:any= getUser()
     
 return (
     <>
-    <BriefProduct product={data.result[0]}/>
+    <BriefProduct product={data.result[0]} user={user}/>
     </>
 )
 }

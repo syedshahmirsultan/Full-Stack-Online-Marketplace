@@ -43,8 +43,18 @@ const Pricing = ({ productData, data }: { productData: singleProductType[], data
     return quantityItem ? total + priceItem.price * (quantityItem.quantity as number) : total;
   }, 0);
 
+
+//Just for check
+  const numbers = [1, 2, 3, 4, 5];
+
+const sum = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, 0);
+
+console.log(sum);// Output: 15 (1 + 2 + 3 + 4 + 5)
+
   return (
-    <div className="flex flex-col space-y-6 px-6 mt-20">
+    <div className="flex flex-col space-y-6 px-6 mt-20 p-4 bg-gray-100/50 rounded-md">
       <h6 className="font-bold text-2xl mb-10">Order Summary</h6>
       <div className="flex justify-between">
         <p className="text-lg font-bold">Quantity:</p>
@@ -64,7 +74,7 @@ const Pricing = ({ productData, data }: { productData: singleProductType[], data
       </div>
       <button 
         // onClick={handleProcessCheckout}
-        className="text-white bg-gray-900 border border-gray-500 px-4 py-2 w-full">
+        className="text-white bg-gray-950 border font-semibold px-4 py-2 w-full rounded-md">
         Proceed to Checkout
       </button>
     </div>

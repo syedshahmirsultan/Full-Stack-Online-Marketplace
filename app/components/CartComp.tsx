@@ -76,7 +76,7 @@ async function dataGetter() {
                 alt="Product Image"
                 className="object-cover"
               />
-              <p className="textgray-900 text-md font-semibold">
+              <p className="text-gray-950 text-md font-semibold">
               {inputValue}
               </p>
             </div>
