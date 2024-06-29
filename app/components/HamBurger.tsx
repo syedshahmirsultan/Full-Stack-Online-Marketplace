@@ -5,10 +5,13 @@ import { RxCross2 } from "react-icons/rx";
 import { IoSearchOutline } from "react-icons/io5";
 import Link from 'next/link';
 import { LoginLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs';
+import { LogoutLink, getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 
-const HamBurger:React.FC = () => {
+const HamBurger:React.FC = async() => {
     const [hamBurgerIsOpen,setHamBurgerIsOpen] = useState<boolean>(false)
-    const [searchVal,setSearchVal] = useState<string>("")
+    const [searchVal,setSearchVal] = useState<string>("");
+    const {getUser} = getKindeServerSession();
+    const user = await getUser();
     return (
         <section>
         <div className='flex lg:hidden'>
@@ -32,9 +35,9 @@ const HamBurger:React.FC = () => {
 </div>
 <Link href="/products" className="text-gray-600 text-md font-semibold p-4 mt-4 hover:bg-gray-100/50">
 Products</Link>
-<RegisterLink className='text-md text-gray-600 cursor-pointer uppercase p-4 font-semibold hover:bg-gray-100/50'>Sign In</RegisterLink>
+{user ?(<LogoutLink className='text-md text-gray-600 cursor-pointer uppercase p-4 font-semibold hover:bg-gray-100/50'>Log out</LogoutLink>) :(<div className='flex flex-col gap-y-4'><RegisterLink className='text-md text-gray-600 cursor-pointer uppercase p-4 font-semibold hover:bg-gray-100/50'>Sign In</RegisterLink>
             <LoginLink className='text-md text-gray-600 cursor-pointer uppercase p-4 font-semibold hover:bg-gray-100/50'>Sign Up
-            </LoginLink>
+            </LoginLink></div>)}
                 </div>)
         }
         </div></section>
