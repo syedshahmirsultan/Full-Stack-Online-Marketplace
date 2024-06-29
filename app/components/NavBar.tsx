@@ -13,7 +13,7 @@ const NavBar:React.FC = () => {
     const [featuredSellerIsOpen, setFeaturedSellerIsOpen] = useState<boolean>(false);
     const [searchVal,setSearchVal] = useState<string>("");
     return (
-        <section className="sticky z-20">
+        <section>
         <div className='bg-white flex flex-row lg:flex-col'>
             <div className="pl-8 pb-[60px] pt-[60px] lg:max-w-8xl h-24 flex gap-x-16 items-center">
                 <Link href="/">
