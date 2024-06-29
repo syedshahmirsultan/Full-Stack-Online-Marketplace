@@ -6,37 +6,37 @@ const Pricing = ({ productData, data }: { productData: singleProductType[], data
   const shipping = 0;
 
 
-//   async function handleProcessCheckout() {
-//     // Include quantity in productData
-//     const productsWithQuantity = productData.map(product => {
-//       const cartItem = data.find(item => item.productid === product._id);
-//       return {
-//         ...product,
-//         quantity: cartItem ? cartItem.quantity : 0
-//       };
-//     });
+  async function handleProcessCheckout() {
+    // Include quantity in productData
+    const productsWithQuantity = productData.map(product => {
+      const cartItem = data.find(item => item.productid === product._id);
+      return {
+        ...product,
+        quantity: cartItem ? cartItem.quantity : 0
+      };
+    });
 
-//     try {
-//       let response = await fetch(`https://shahmir-full-stack-ecommerce-website.vercel.app/api/checkout_session`, {
-//         method: "POST",
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(productsWithQuantity),
-//       });
+    try {
+      let response = await fetch(`http://localhost:3000/api/checkout_sessions`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(productsWithQuantity),
+      });
 
-//       let result = await response.json();
-//       console.log("HANDLE PROCESS CHECKOUT:", result);
+      let result = await response.json();
+      console.log("HANDLE PROCESS CHECKOUT:", result);
 
-//       if (result.link) {
-//         window.location.href = result.link; // Redirect to Stripe checkout page
-//       } else {
-//         console.error("Error in fetching Stripe URL:", result.error);
-//       }
-//     } catch (error) {
-//       console.error("Error processing checkout:", error);
-//     }
-//   }
+      if (result.link) {
+        window.location.href = result.link; // Redirect to Stripe checkout page
+      } else {
+        console.error("Error in fetching Stripe URL:", result.error);
+      }
+    } catch (error) {
+      console.error("Error processing checkout:", error);
+    }
+  }
 
   const orderTotal = productData.reduce((total, priceItem) => {
     const quantityItem = data.find(item => item.productid === priceItem._id);
@@ -64,7 +64,7 @@ const Pricing = ({ productData, data }: { productData: singleProductType[], data
         <p className="font-bold">${orderTotal + shipping}</p>
       </div>
       <button 
-        // onClick={handleProcessCheckout}
+     onClick={handleProcessCheckout}
         className="text-white bg-gray-950 border font-semibold px-4 py-2 w-full rounded-md">
         Proceed to Checkout
       </button>
