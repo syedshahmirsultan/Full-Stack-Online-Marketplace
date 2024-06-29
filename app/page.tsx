@@ -1,5 +1,4 @@
 import Hero from "./components/Hero";
-import { InputProvider } from "./components/InputContext";
 import OnlineShopping from "./components/onlineShopping";
 export default function Home() {
   
