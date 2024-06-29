@@ -19,7 +19,7 @@ This is a full-stack online marketplace website. Users can browse through availa
 
 - **Full-Stack E-Commerce Functionality**: Offers comprehensive e-commerce capabilities, including browsing products, adding them to the shopping cart, and seamless checkout.
   
-- **Search Functionality**: Users can search the products by product names from the search tab in in the navbar.
+- **Search Functionality**: Users can search the products by product names from the search tab in the navbar.
   
 - **Product Management**: Users can easily browse through available products and add them to their shopping carts.
   
