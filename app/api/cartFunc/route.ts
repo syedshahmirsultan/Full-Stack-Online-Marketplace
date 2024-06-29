@@ -12,7 +12,6 @@ export async function GET(req: NextRequest) {
         if (url.has('userid')) {
             const { userid } = validateUserId.parse({ userid: url.get('userid') });
             const cartData = await db.select().from(marketplacetable).where(eq(marketplacetable.userid, userid));
-           console.log("CART DATA :",cartData);
             return NextResponse.json(cartData);
         } else {
             return NextResponse.json({ Message: "Userid Not Found" });
@@ -129,7 +128,6 @@ export async function DELETE(req: NextRequest) {
         );
       }
       let rr = (error as { message: string }).message;
-      console.log("Error", rr);
       return NextResponse.json({ error: rr });
     }
   }

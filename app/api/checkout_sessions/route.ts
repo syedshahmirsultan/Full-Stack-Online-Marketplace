@@ -49,7 +49,6 @@ export async function POST(req: NextRequest) {
       cancel_url: `${req.nextUrl.origin}/?success=false`,
     });
 
-    console.log("Session URL:", session.url);
     return NextResponse.json({ link: session.url });
   } catch (error) {
     console.error("Error creating Stripe session:", error);

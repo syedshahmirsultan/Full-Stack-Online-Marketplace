@@ -26,7 +26,6 @@ const Pricing = ({ productData, data }: { productData: singleProductType[], data
       });
 
       let result = await response.json();
-      console.log("HANDLE PROCESS CHECKOUT:", result);
 
       if (result.link) {
         window.location.href = result.link; // Redirect to Stripe checkout page
