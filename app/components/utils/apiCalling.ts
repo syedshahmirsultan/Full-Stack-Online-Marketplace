@@ -122,11 +122,11 @@ export async function getAllCartProductByUserid(userid:string){
     
 
      
-     export async function addToCartApiCall(userid: string, productid: string, quantity: number) {
+     export async function addToCartApiCall(userid: string, productid: string) {
         const payload = {
             userid: userid,
             productid: productid,
-            quantity: quantity
+            quantity: 1
         };
         console.log("Payload to send:", payload);
     

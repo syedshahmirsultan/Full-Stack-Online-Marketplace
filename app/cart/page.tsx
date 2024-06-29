@@ -5,7 +5,6 @@ import { typeOfCart } from '@/lib/drizzle';
 import CartComp from '../components/CartComp';
 import { KindeUser } from '@kinde-oss/kinde-auth-nextjs/types';
 import { LogIn } from 'lucide-react';
-import { InputProvider } from "@/app/components/InputContext";
 
 const Cart = async () => {
     const { getUser } = getKindeServerSession();
@@ -24,9 +23,9 @@ const Cart = async () => {
     }
 
     return (
-        <InputProvider>
+        <>
             <CartComp data={data} user={user} />
-        </InputProvider>
+            </>
     );
 }
 

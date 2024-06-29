@@ -33,28 +33,48 @@ export async function GET(req: NextRequest) {
 }
 
 
-export async function POST(req: NextRequest) {
+export async function POST (req:NextRequest){
+
+    const body = await req.json()
+    const validatedBody = validatePOST.parse(body);
     try {
-        const rawPayload = await req.json();
-        console.log("Received raw payload:", rawPayload);
+const alreadyCartData = await db.select().from(marketplacetable).where(and(eq(
+    marketplacetable.userid ,validatedBody.userid
+), eq(marketplacetable.productid,validatedBody.productid)))
 
-        const payload = validatePOST.parse(rawPayload);
-        console.log("Validated payload:", payload);
+ if (alreadyCartData.length > 0){
+    const updatedData = {
+        userid :validatedBody.userid,
+        productid :validatedBody.productid,
+        quantity :validatedBody.quantity as number + 1
+        // quantity :alreadyCartData[0].quantity as number + 1
+    }
 
-        const result = await db.insert(marketplacetable).values(payload).returning();
-        return NextResponse.json({ success: true, data: result });
-    } catch (error) {
-        console.error("Error processing POST request:", error);
+await db.update(marketplacetable).set(updatedData).where(
+    and(eq(marketplacetable.userid,validatedBody.userid),
+        eq(marketplacetable.productid,validatedBody.productid)
+)
+)
+ return NextResponse.json({
+    message :"gg"
+ })
+}
 
-        if (error instanceof z.ZodError) {
-            console.log("Validation errors:", error.errors);
-            return NextResponse.json({
-                error: "Invalid Payload",
-                details: error.errors
-            }, { status: 422 });
+else {      
+    const cartData = await db.insert(marketplacetable).values(validatedBody).returning();
+        return NextResponse.json(cartData) 
+    } 
+} catch (error) {
+        if(error instanceof z.ZodError){
+            return NextResponse.json ({
+                error :"Invalid Payload"},
+            {
+                status :422
+            })
         }
-
-        return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+ 
+        const rr = (error as {message :string}).message
+        return NextResponse.json ({ messaage:"ERROR FACING HERE"})
     }
 }
 

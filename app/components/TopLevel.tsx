@@ -14,7 +14,7 @@ const TopLevel:React.FC = async() => {
             </p>
             <div className='hidden lg:flex lg:gap-x-[26px] lg:mr-2'>
             {user ? (<LogoutLink className='text-sm text-gray-100 cursor-pointer uppercase'>Log out</LogoutLink>)
-            :(<div><RegisterLink className='text-sm text-gray-100 cursor-pointer uppercase'>Sign In</RegisterLink>
+            :(<div className="flex gap-x-8"><RegisterLink className='text-sm text-gray-100 cursor-pointer uppercase'>Sign In</RegisterLink>
             <LoginLink className='text-sm text-gray-100 cursor-pointer uppercase'>Sign Up
             </LoginLink></div>)}
             </div>

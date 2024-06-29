@@ -81,7 +81,7 @@ const CartComp = ({ data, user }: { data: typeOfCart[], user: KindeUser }) => {
                         <div className="flex justify-between items-center">
                             <Image
                                 src={urlForImage(item.image[0])}
-                                width={120}
+                                width={150}
                                 height={70}
                                 alt="Product Image"
                                 className="object-cover"

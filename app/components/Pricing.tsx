@@ -1,11 +1,9 @@
 import React from 'react';
 import { typeOfCart } from '@/lib/drizzle';
 import singleProductType from '@/types';
-import { useInputContext } from './InputContext';
 
 const Pricing = ({ productData, data }: { productData: singleProductType[], data: typeOfCart[] }) => {
   const shipping = 0;
-  const { inputValue } = useInputContext();
 
 
 //   async function handleProcessCheckout() {

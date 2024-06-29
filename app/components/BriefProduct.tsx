@@ -1,6 +1,5 @@
 "use client";
 import React from 'react';
-import { useInputContext } from './InputContext';
 import { addToCartApiCall } from './utils/apiCalling';
 import { useToast } from '@/components/ui/use-toast';
 import Image from 'next/image';
@@ -12,16 +11,12 @@ import { KindeUser } from '@kinde-oss/kinde-auth-nextjs/types';
 import singleProductType from '@/types';
 
 const BriefProduct = ({ product, user }: { product: singleProductType, user: KindeUser | null }) => {
-    const { inputValue } = useInputContext();
-
-
     const { toast } = useToast();
 
     async function handleAddToCart() {
         if (user) {
-
             try {
-                await addToCartApiCall(user.id, product._id, inputValue);
+                await addToCartApiCall(user.id, product._id);
                 toast({
                     title: "Successfully",
                     description: "Added to Cart Successfully!"
@@ -52,7 +47,7 @@ const BriefProduct = ({ product, user }: { product: singleProductType, user: Kin
                     <h2 className='font-bold text-4xl'>{product.productname}</h2>
                     <p className='text-xl text-gray-600'>Sold by <span className='text-gray-800 font-bold text-xl'>{product.sellername}</span></p>
                     <text className="text-2xl font-extrabold text-gray-900">${product.price}</text>
-                       
+                        
                     <button onClick={handleAddToCart} className='p-3 mt-6 bg-gray-950 w-44 h-12 text-white rounded-md text-md font-semibold'>Add to Cart</button>
                     <div className="flex gap-x-4 md:gap-x-8 mt-8">
                         <div className="flex flex-col gap-y-2">
@@ -71,7 +66,7 @@ const BriefProduct = ({ product, user }: { product: singleProductType, user: Kin
                 </div>
             </div>
 
-            <div className="mt-8 p-4 md:p-8 overflow-x-hidden">
+            <div className="mt-8 p-4 md:p-8">
                 <h3 className="text-gray-900 font-bold text-xl text-start">Product Description</h3>
                 <p className='text-gray-900 text-lg mt-4 p-4 text-start md:pr-20'>{product.descriptionText}</p>
             </div>
