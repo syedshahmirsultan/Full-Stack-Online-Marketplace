@@ -12,7 +12,7 @@ This is a full-stack online marketplace website. Users can browse through availa
 - [Shadecn](https://ui.shadcn.com/)
 - [Drizzle ORM](https://orm.drizzle.team/)
 - [Stripe](https://stripe.com/)
-- [Vercel Postgres](https://vercel.com/)
+- [Vercel Postgresql Database](https://vercel.com/)
 - [Zod](https://zod.dev/)
 
 ## Features 
